@@ -173,4 +173,83 @@ body {
     width: 20px;
     height: 20px;
   }
+
+  /* Sign In Container */
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+  }
+  
+  .signup-box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 500px;
+    height: auto;
+  }
+  
+  .signup-box h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+  }
+  
+  .signup-box p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .signup-box input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .signup-box button {
+    width: 100%;
+    padding: 10px;
+    background-color: #484848;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .signup-box button:hover {
+    background-color: #ffe6f6;
+  }
+  
+  .signup-box a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .signup-box a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Divider */
+  .divider {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  .divider hr {
+    flex: 1;
+    border: none;
+    border-top: 1px solid #ccc;
+  }
+  
+  .divider span {
+    margin: 0 10px;
+    font-size: 14px;
+    color: #999;
+  }
+  
   
