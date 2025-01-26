@@ -29,7 +29,6 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         body: JSON.stringify(jsondata),
         beforeSend: function () {
-          document.getElementById("submit-button").disabled = true;
           // Clear form using the form ID and triggering its reset feature
           document.getElementById("user-form").reset();
         }
@@ -40,9 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.json())
         .then(data => {
           console.log(data);
-          document.getElementById("submit-button").disabled = false;
         });
     });
-
-
 });
