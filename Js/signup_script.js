@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.json())
         .then(data => {
           console.log(data);
+          document.location.href = "index.html";
         });
     });
 });

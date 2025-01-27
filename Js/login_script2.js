@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
             else
             {
                 alert("Login successful!");
+                document.location.href = "index.html";
             }
           });
       });
