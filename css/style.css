@@ -543,48 +543,58 @@ ol {
 .canvas__open {
 	display: none;
 }
-/* Log in page  */
+/* LOGIN PAGE STYLES */
 .login-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
+    height: 80vh;
+    background-color: #f5f5f5;
 }
 
 .login-box {
-    background: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    width: 400px;
 }
 
 .login-box h1 {
     font-size: 24px;
+    font-weight: bold;
     margin-bottom: 10px;
 }
 
-.login-box form input {
+.login-box p {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.login-box input {
     width: 100%;
     padding: 10px;
-    margin: 10px 0;
+    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 14px;
 }
 
 .login-box button {
     width: 100%;
     padding: 10px;
-    background: #e53637;
+    background-color: #111111;
     color: white;
     border: none;
-    cursor: pointer;
     border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
 }
 
 .login-box button:hover {
-    background: #d12f32;
+    background-color: #e53637;
 }
 
 .divider {
@@ -595,27 +605,26 @@ ol {
 }
 
 .divider hr {
-    flex: 1;
+    width: 40%;
     border: none;
-    height: 1px;
-    background: #ccc;
+    border-top: 1px solid #ddd;
 }
 
 .divider span {
     margin: 0 10px;
     font-size: 14px;
-    color: #777;
+    color: #666;
 }
 
 .social-login {
     display: flex;
     justify-content: center;
+    gap: 10px;
 }
 
 .social-btn {
-    background: none;
     border: none;
-    margin: 0 10px;
+    background: none;
     cursor: pointer;
 }
 
@@ -623,6 +632,7 @@ ol {
     width: 40px;
     height: 40px;
 }
+
 
 /*---------------------
   Hero Section Fixes
@@ -939,6 +949,58 @@ ol {
 .instagram__text h3 {
 	color: #e53637;
 	font-weight: 700;
+}
+/* USER FEEDBACK CAROUSEL */
+.user-feedback {
+    text-align: center;
+    margin: 50px auto;
+    max-width: 900px;
+}
+
+.user-feedback h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.user-feedback-carousel {
+    position: relative;
+}
+
+.feedback-item {
+    text-align: center;
+    padding: 20px;
+}
+
+.feedback-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.feedback-item .stars {
+    font-size: 18px;
+    color: #FFD700;
+    margin-bottom: 10px;
+}
+
+.feedback-item p {
+    font-size: 14px;
+    color: #3d3d3d;
+    margin-bottom: 10px;
+}
+
+.feedback-item .username {
+    font-weight: bold;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    width: auto;
+    color: #000;
 }
 
 /*---------------------
