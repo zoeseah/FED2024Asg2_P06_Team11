@@ -1,0 +1,40 @@
+document.addEventListener("DOMContentLoaded", function () {
+    // Function to get URL parameters
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+
+    // Retrieve product ID from URL
+    const productId = getQueryParam("id");
+
+    // Sample product data (replace with a dynamic database/API later)
+    const products = {
+        1: {
+            name: "Piqué Biker Jacket",
+            price: "$67.24",
+            image: "img/product/product-2.jpg",
+            description: "Stylish biker jacket with high-quality fabric."
+        },
+        2: {
+            name: "Multi-pocket Chest Bag",
+            price: "$43.48",
+            image: "img/product/product-3.jpg",
+            description: "Lightweight and trendy chest bag for daily use."
+        }
+    };
+
+    // Find the product using the retrieved ID
+    if (products[productId]) {
+        document.querySelector(".product__details__text h4").innerText = products[productId].name;
+        document.querySelector(".product__details__text h3").innerText = products[productId].price;
+        document.querySelector(".product__details__text p").innerText = products[productId].description;
+        document.querySelector(".product__details__pic__item img").src = products[productId].image;
+    } else {
+        // If no matching product is found
+        document.querySelector(".product__details__text h4").innerText = "Product Not Found";
+        document.querySelector(".product__details__text h3").innerText = "";
+        document.querySelector(".product__details__text p").innerText = "";
+        document.querySelector(".product__details__pic__item img").src = "img/no-image.png";
+    }
+});
