@@ -90,7 +90,13 @@ The platform was rigorously tested to ensure:
 ## Credits
 - **Base JavaScript code for the "2048" game**: Sourced online (Original site unknown).
 - **Icons and UI components**: Bootstrap & FontAwesome.
+<<<<<<< HEAD
 - **Google Firebase Authentication**: For third-party logins.
 - **General inspiration**: Derived from existing eCommerce platforms like Depop and Carousell.
 
 ---
+=======
+- **General inspiration**: Derived from existing eCommerce platforms like Depop and Carousell.
+
+---
+>>>>>>> 2532119c6a3d14e483b27c3704f2150bb8bad701
