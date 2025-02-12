@@ -3976,52 +3976,38 @@ input:invalid, select:invalid, textarea:invalid {
     padding: 20px 0;
 }
 
-/* Continue Shopping Button */
-/* Centering the Buttons */
+/* Shopping Cart Buttons */
 .cart-buttons {
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center;
-    margin-top: 40px;
-    gap: 20px; /* Space between buttons */
+    justify-content: space-between; 
+    margin-top: 20px; 
+    padding: 10px 0;
 }
 
-/* Continue Shopping Button */
-.continue__btn a {
-    display: inline-block;
-    padding: 14px 40px;
-    font-size: 14px;
-    font-weight: 700;
-    text-transform: uppercase;
-    text-align: center;
-    color: black;
-    background: white;
-    border: 2px solid black;
-    transition: all 0.3s ease-in-out;
-}
-
-.continue__btn a:hover {
-    background: black;
+.cart-buttons .primary-btn {
+    background-color: #d40000;
     color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
-/* Update Cart Button */
-.update__btn a {
-    display: inline-block;
-    padding: 14px 40px;
-    font-size: 14px;
-    font-weight: 700;
-    text-transform: uppercase;
+.cart-buttons .primary-btn:hover {
+    background-color: #a80000;
+}
+
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    background-color: #ffffff;
     text-align: center;
-    color: white;
-    background: black;
-    border: 2px solid black;
-    transition: all 0.3s ease-in-out;
+    margin-top: 50px; /* Ensures footer is spaced correctly */
 }
 
-.update__btn a:hover {
-    background: #333;
-}
 
 @keyframes spin {
     0% { transform: rotate(0deg); }
