@@ -1,0 +1,157 @@
+/* General Styling */
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+/* Header */
+header {
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.navbar a {
+    font-weight: 600;
+    text-decoration: none;
+    color: #333;
+    margin-right: 15px;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+    color: #0d6efd;
+}
+
+/* Pricing Section */
+.pricing-header {
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.pricing-header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #212529;
+}
+
+.pricing-header p {
+    font-size: 1.2rem;
+    color: #6c757d;
+}
+
+/* Pricing Cards */
+.card {
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: 1px solid #ddd;
+}
+
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    font-weight: 700;
+    font-size: 1.5rem;
+    background-color: #f8f9fa;
+}
+
+.card-body h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Primary Button */
+.btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #0b5ed7;
+    transform: scale(1.05);
+}
+
+/* Outline Button */
+.btn-outline-primary {
+    color: #0d6efd;
+    border-color: #0d6efd;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.btn-outline-primary:hover {
+    background-color: #0d6efd;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Enterprise Card Highlight */
+.card.border-primary {
+    border: 2px solid #0d6efd;
+}
+
+.card.border-primary .card-header {
+    background-color: #0d6efd;
+    color: white;
+}
+
+/* Table Styling */
+.table {
+    margin-top: 20px;
+}
+
+.table thead th {
+    background-color: #f1f3f5;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.table td, .table th {
+    vertical-align: middle;
+}
+
+/* Footer */
+footer {
+    background: #fff;
+    padding: 40px 0;
+    border-top: 1px solid #ddd;
+    margin-top: 40px;
+}
+
+footer h5 {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    margin-bottom: 8px;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: #6c757d;
+    transition: color 0.3s ease-in-out;
+}
+
+footer ul li a:hover {
+    color: #0d6efd;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .pricing-header h1 {
+        font-size: 2rem;
+    }
+
+    .card-body h1 {
+        font-size: 1.5rem;
+    }
+}

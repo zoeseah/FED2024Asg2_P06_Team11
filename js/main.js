@@ -216,145 +216,117 @@
 })(jQuery);
 
 
-// Create Listing 
-document.getElementById("addPhotoButton").addEventListener("click", function() {
-    document.getElementById("photoUpload").click();
-});
-
-document.getElementById("photoUpload").addEventListener("change", function(event) {
-    const previewContainer = document.getElementById("imagePreview");
-    previewContainer.innerHTML = ""; // Clear previous previews
-    const files = event.target.files;
-
-    if (files.length > 8) {
-        alert("You can only upload up to 8 images.");
-        return;
-    }
-
-    for (let file of files) {
-        if (!file.type.startsWith("image/")) {
-            alert("Only JPEG or PNG images are allowed.");
-            continue;
-        }
-
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            const imgContainer = document.createElement("div");
-            imgContainer.style.position = "relative";
-            
-            const img = document.createElement("img");
-            img.src = e.target.result;
-            img.style.width = "100px";
-            img.style.height = "100px";
-            img.style.objectFit = "cover";
-            img.style.borderRadius = "5px";
-
-            // Remove button
-            const removeBtn = document.createElement("button");
-            removeBtn.innerHTML = "X";
-            removeBtn.style.position = "absolute";
-            removeBtn.style.top = "5px";
-            removeBtn.style.right = "5px";
-            removeBtn.style.background = "red";
-            removeBtn.style.color = "white";
-            removeBtn.style.border = "none";
-            removeBtn.style.cursor = "pointer";
-            removeBtn.style.padding = "3px 5px";
-            removeBtn.style.borderRadius = "50%";
-
-            removeBtn.addEventListener("click", function() {
-                imgContainer.remove();
-            });
-
-            imgContainer.appendChild(img);
-            imgContainer.appendChild(removeBtn);
-            previewContainer.appendChild(imgContainer);
-        };
-        reader.readAsDataURL(file);
-    }
-});
-
-// Create Listings 
+// Create Listing
 document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".custom-dropdown").forEach(dropdown => {
-        const dropdownBtn = dropdown.querySelector(".dropdown-btn");
-        const dropdownMenu = dropdown.querySelector(".dropdown-menu");
+    // Handle dropdown functionality
+    document.querySelectorAll(".custom-dropdown").forEach(function (dropdown) {
+        let dropdownBtn = dropdown.querySelector(".dropdown-btn");
+        let dropdownMenu = dropdown.querySelector(".dropdown-menu");
 
-        // Toggle dropdown when button is clicked
-        dropdownBtn.addEventListener("click", function () {
-            dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+        dropdownBtn.addEventListener("click", function (event) {
+            event.stopPropagation();
+            dropdownMenu.classList.toggle("show");
         });
 
-        // Select an item from the dropdown
-        dropdown.querySelectorAll(".dropdown-submenu li").forEach(item => {
-            item.addEventListener("click", function () {
-                dropdownBtn.textContent = this.textContent;
-                dropdownMenu.style.display = "none";
+        dropdownMenu.querySelectorAll("li").forEach(function (item) {
+            item.addEventListener("click", function (event) {
+                event.stopPropagation();
+                dropdownBtn.innerText = this.innerText;
+                dropdownMenu.classList.remove("show");
+                dropdownBtn.setAttribute("data-selected", this.innerText);
             });
         });
 
-        // Hide dropdown when clicking outside
-        document.addEventListener("click", function (e) {
-            if (!dropdown.contains(e.target)) {
-                dropdownMenu.style.display = "none";
-            }
+        document.addEventListener("click", function () {
+            dropdownMenu.classList.remove("show");
         });
     });
-});
 
-document.addEventListener("DOMContentLoaded", function () {
-    function formatCurrency(input) {
-        let value = input.value.replace(/\D/g, ""); // Remove all non-numeric characters
-        if (value === "") {
-            input.value = "";
+    // Handle photo upload
+    document.getElementById("photoUpload").addEventListener("change", function(event) {
+        const previewContainer = document.getElementById("imagePreview");
+        previewContainer.innerHTML = ""; // Clear previous previews
+        const files = event.target.files;
+
+        if (files.length > 8) {
+            alert("You can only upload up to 8 images.");
             return;
         }
-        
-        // Convert to currency format (e.g., $1,234.56)
-        let formattedValue = new Intl.NumberFormat("en-US", {
-            style: "currency",
-            currency: "USD",
-            minimumFractionDigits: 2
-        }).format(value / 100); // Convert cents to dollars
 
-        input.value = formattedValue;
-    }
+        for (let file of files) {
+            if (!file.type.startsWith("image/")) {
+                alert("Only JPEG or PNG images are allowed.");
+                continue;
+            }
 
-    // Apply formatting to both inputs
-    document.querySelectorAll(".money-input").forEach(input => {
-        input.addEventListener("input", function () {
-            formatCurrency(this);
-        });
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const imgContainer = document.createElement("div");
+                imgContainer.style.position = "relative";
 
-        // Ensure formatting on page load if there is a pre-filled value
-        input.addEventListener("blur", function () {
-            formatCurrency(this);
-        });
+                const img = document.createElement("img");
+                img.src = e.target.result;
+                img.style.width = "100px";
+                img.style.height = "100px";
+                img.style.objectFit = "cover";
+                img.style.borderRadius = "5px";
+
+                const removeBtn = document.createElement("button");
+                removeBtn.innerHTML = "X";
+                removeBtn.style.position = "absolute";
+                removeBtn.style.top = "5px";
+                removeBtn.style.right = "5px";
+                removeBtn.style.background = "red";
+                removeBtn.style.color = "white";
+                removeBtn.style.border = "none";
+                removeBtn.style.cursor = "pointer";
+                removeBtn.style.padding = "3px 5px";
+                removeBtn.style.borderRadius = "50%";
+
+                removeBtn.addEventListener("click", function() {
+                    imgContainer.remove();
+                });
+
+                imgContainer.appendChild(img);
+                imgContainer.appendChild(removeBtn);
+                previewContainer.appendChild(imgContainer);
+            };
+            reader.readAsDataURL(file);
+        }
     });
-});
 
-document.addEventListener("DOMContentLoaded", function () {
-    document.querySelector("form").addEventListener("submit", function (event) {
-        event.preventDefault(); // Prevent form from submitting
+    // Handle form validation and Lottie animation
+    const form = document.querySelector("form");
+    const successModal = document.getElementById("success-modal");
+    const lottieContainer = document.getElementById("lottie-animation");
+
+    const requiredFields = [
+        { id: "photoUpload", message: "Please upload at least one photo." },
+        { id: "description", message: "Please enter a description." },
+        { id: "category-btn", message: "Please select a category." },
+        { id: "condition", message: "Please select a condition." },
+        { id: "country", message: "Please enter your country." },
+        { id: "shipping-price", message: "Please enter a shipping price." },
+        { id: "item-price", message: "Please enter an item price." }
+    ];
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent default submission
         let isValid = true;
 
-        // Required fields (excluding Brand)
-        let requiredFields = [
-            { id: "photoUpload", message: "Please upload at least one photo." },
-            { id: "description", message: "Please enter a description." },
-            { id: "category", message: "Please select a category." },
-            { id: "condition", message: "Please select a condition." },
-            { id: "country", message: "Please enter your country." },
-            { id: "shipping-price", message: "Please enter a shipping price." },
-            { id: "item-price", message: "Please enter an item price." }
-        ];
-
-        // Check each required field
         requiredFields.forEach(field => {
             let element = document.getElementById(field.id);
-            let value = element ? element.value.trim() : "";
+            if (!element) return;
 
-            // Check for empty values
+            let value;
+            if (field.id === "photoUpload") {
+                value = element.files.length; // Check if at least one image is uploaded
+            } else if (field.id === "category-btn") {
+                value = element.getAttribute("data-selected"); // Get the selected category
+            } else {
+                value = element.value.trim();
+            }
+
             if (!value) {
                 showError(element, field.message);
                 isValid = false;
@@ -364,28 +336,51 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         if (isValid) {
-            alert("Form submitted successfully!"); // Replace with actual form submission logic
-            this.submit();
+            // Show success modal
+            successModal.style.display = "flex";
+
+            // Load Lottie animation
+            const lottiePlayer = document.createElement("dotlottie-player");
+            lottiePlayer.src = "https://lottie.host/b20ff686-d90a-428f-ba0c-3b3ad9638eb0/NsfaIo3FbV.lottie";
+            lottiePlayer.background = "transparent";
+            lottiePlayer.speed = "1";
+            lottiePlayer.style.width = "200px";
+            lottiePlayer.style.height = "200px";
+            lottiePlayer.loop = false;
+            lottiePlayer.autoplay = true;
+
+            // Remove existing animation if any
+            lottieContainer.innerHTML = "";
+            lottieContainer.appendChild(lottiePlayer);
+
+            // Redirect after 3 seconds
+            setTimeout(() => {
+                window.location.href = "bump.html"; 
+            }, 1500);
         }
     });
 
     function showError(element, message) {
         clearError(element);
+
         let error = document.createElement("div");
         error.className = "error-message";
         error.textContent = message;
+        error.style.color = "red";
+        error.style.fontSize = "12px";
+        error.style.marginTop = "5px";
+
         element.parentNode.appendChild(error);
-        element.style.borderColor = "red";
+        element.style.border = "2px solid red";
     }
 
     function clearError(element) {
-        if (element) {
-            let error = element.parentNode.querySelector(".error-message");
-            if (error) error.remove();
-            element.style.borderColor = ""; // Reset border color
-        }
+        let error = element.parentNode.querySelector(".error-message");
+        if (error) error.remove();
+        element.style.border = "1px solid #ccc"; // Reset border color
     }
 });
+
 
 // Chat 
 document.addEventListener("DOMContentLoaded", function () {
@@ -489,4 +484,51 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("preloader").style.display = "none";
         }, 2000); // Adjust time if needed
     };
+});
+
+// Add to Cart 
+document.addEventListener("DOMContentLoaded", function () {
+    const cartCountElement = document.querySelector(".header__nav__option a[href='shopping-cart.html'] span");
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Update cart count
+    function updateCartCount() {
+        cartCountElement.textContent = cart.length;
+    }
+    updateCartCount();
+
+    // Add to Cart Functionality
+    document.querySelectorAll(".add-cart").forEach(button => {
+        button.addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent default link behavior
+
+            let productElement = this.closest(".product__item");
+            let productName = productElement.querySelector("h6").textContent;
+            let productPrice = productElement.querySelector("h5").textContent.replace("$", "");
+            let productImage = productElement.querySelector(".product__item__pic").getAttribute("data-setbg");
+
+            let product = {
+                name: productName,
+                price: parseFloat(productPrice),
+                image: productImage,
+                quantity: 1
+            };
+
+            // Check if product is already in cart, increase quantity if so
+            let existingProduct = cart.find(item => item.name === product.name);
+            if (existingProduct) {
+                existingProduct.quantity++;
+            } else {
+                cart.push(product);
+            }
+
+            // Save to localStorage
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            // Update cart count
+            updateCartCount();
+
+            alert(`Added "${product.name}" to cart!`);
+        });
+    });
 });
