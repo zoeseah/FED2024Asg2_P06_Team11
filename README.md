@@ -64,9 +64,8 @@ The MokeSell platform was built using a combination of modern web development te
 
 - **HTML**: Structuring the website layout.
 - **CSS (Bootstrap, FontAwesome, Custom Styles)**: Styling and responsiveness.
-- **JavaScript (jQuery, Vanilla JS)**: Enhancing interactivity and user experience.
-- **PHP & MySQL**: Backend development and database management.
-- **Firebase Authentication**: Implementing Google and Apple login.
+- **JavaScript**: Enhancing interactivity and user experience.
+- **RestDB** API Implementation and database management.
 - **Game Development**: JavaScript logic for the "2048" game.
 
 ## Assistive AI
@@ -90,7 +89,6 @@ The platform was rigorously tested to ensure:
 ## Credits
 - **Base JavaScript code for the "2048" game**: Sourced online (Original site unknown).
 - **Icons and UI components**: Bootstrap & FontAwesome.
-- **Google Firebase Authentication**: For third-party logins.
 - **General inspiration**: Derived from existing eCommerce platforms like Depop and Carousell.
 
 ---
