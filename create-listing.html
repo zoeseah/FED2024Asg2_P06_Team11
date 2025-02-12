@@ -129,34 +129,169 @@
                         <h2>List Item</h2>
                     </div>
                     <div class="contact__form">
-                        <form action="#">
+                        <form action="#" >
                             <div class="row">
                                 <div class="col-lg-12">
                                     <h4>Photos</h4>
                                     <p>Add up to 8 photos in JPEG or PNG format</p>
-                                    <button type="submit" class="add-photo-btn">Add Photo</button>
+                                    
+                                   
+                                    <input type="file" id="photoUpload" accept="image/jpeg, image/png"  multiple required>
+
+                               
+                                    <div id="imagePreview" style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;"></div>
+                                    
                                 </div>
                                 <div class="col-lg-12">
                                     <br>
                                     <h4>Description</h4>
                                     <textarea placeholder="Enter description"></textarea>
-                                    <h4>Information</h4>
-                                    Category
-                                    <input type="text" placeholder="Category">
-                                    Brand (Optional)
-                                    <input type="text" placeholder="Brand (Optional)">
-                                    Condition
-                                    <input type="text" placeholder="Condition">
-                                    <h4>Location</h4>
-                                    Country
+                                    <h3>Information</h3>
+                                    <br>
+                                    
+                                    <h4>Category</h4>
+                                    <!-- Custom Dropdown for Category -->
+                                    <div class="custom-dropdown">
+                                        <button class="dropdown-btn">Select Category</button>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-category">Electronics
+                                                <ul class="dropdown-submenu">
+                                                    <li>Smartphones</li>
+                                                    <li>Laptops & Computers</li>
+                                                    <li>Tablets</li>
+                                                    <li>Gaming Consoles</li>
+                                                    <li>Cameras & Accessories</li>
+                                                    <li>Audio & Headphones</li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown-category">Fashion
+                                                <ul class="dropdown-submenu">
+                                                    <li>Clothing</li>
+                                                    <li>Shoes</li>
+                                                    <li>Watches & Accessories</li>
+                                                    <li>Bags & Wallets</li>
+                                                    <li>Jewelry</li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown-category">Home & Living
+                                                <ul class="dropdown-submenu">
+                                                    <li>Furniture</li>
+                                                    <li>Home Decor</li>
+                                                    <li>Appliances</li>
+                                                    <li>Kitchen & Dining</li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown-category">Vehicles
+                                                <ul class="dropdown-submenu">
+                                                    <li>Cars</li>
+                                                    <li>Motorcycles</li>
+                                                    <li>Bicycles</li>
+                                                    <li>Auto Parts & Accessories</li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown-category">Hobbies & Collectibles
+                                                <ul class="dropdown-submenu">
+                                                    <li>Toys & Games</li>
+                                                    <li>Books & Magazines</li>
+                                                    <li>Musical Instruments</li>
+                                                    <li>Sports & Outdoor</li>
+                                                    <li>Art & Collectibles</li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown-category">Health & Beauty
+                                                <ul class="dropdown-submenu">
+                                                    <li>Skincare</li>
+                                                    <li>Makeup & Cosmetics</li>
+                                                    <li>Fitness Equipment</li>
+                                                    <li>Personal Care</li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown-category">Miscellaneous
+                                                <ul class="dropdown-submenu">
+                                                    <li>Pet Supplies</li>
+                                                    <li>Tickets & Vouchers</li>
+                                                    <li>Services</li>
+                                                    <li>Other</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <h4>Brand (Optional)</h4>
+                                    <div class="custom-dropdown">
+                                        <button class="dropdown-btn">Select Brand (Optional)</button>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-category">Electronics
+                                                <ul class="dropdown-submenu">
+                                                    <li>Apple</li>
+                                                    <li>Samsung</li>
+                                                    <li>Sony</li>
+                                                    <li>Dell</li>
+                                                    <li>HP</li>
+                                                    <li>Asus</li>
+                                                    <li>Other Electronics Brand</li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown-category">Fashion
+                                                <ul class="dropdown-submenu">
+                                                    <li>Nike</li>
+                                                    <li>Adidas</li>
+                                                    <li>Gucci</li>
+                                                    <li>Louis Vuitton</li>
+                                                    <li>Zara</li>
+                                                    <li>H&M</li>
+                                                    <li>Other Fashion Brand</li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown-category">Vehicles
+                                                <ul class="dropdown-submenu">
+                                                    <li>Toyota</li>
+                                                    <li>Honda</li>
+                                                    <li>Ford</li>
+                                                    <li>BMW</li>
+                                                    <li>Mercedes-Benz</li>
+                                                    <li>Yamaha</li>
+                                                    <li>Other Vehicle Brand</li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown-category">Hobbies & Collectibles
+                                                <ul class="dropdown-submenu">
+                                                    <li>Lego</li>
+                                                    <li>Nintendo</li>
+                                                    <li>Funko</li>
+                                                    <li>Marvel</li>
+                                                    <li>DC Comics</li>
+                                                    <li>Other Collectible Brand</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                             
+                                    <h4>Condition</h4>
+                                    <br>
+                                    <select id="condition" required>
+                                        <option value="" disabled selected>Select Condition</option>
+                                        <option value="New">New</option>
+                                        <option value="Like New">Like New</option>
+                                        <option value="Used - Good">Used - Good</option>
+                                        <option value="Used - Fair">Used - Fair</option>
+                                        <option value="For Parts">For Parts</option>
+                                    </select>
+                                    <br>
+                                    <br>
+                                    <h4>Country</h4>
                                     <input type="text" placeholder="Country">
-                                    Shipping Price
-                                    <input type="text" placeholder="Shipping Price">
-                                </div>
-                                <div class="col-lg-6">
-                                    Item Price
-                                    <input type="text" placeholder="Price">
-                                </div>
+                                    <h4>Pricing</h4>
+                                    <br>
+                                    <!-- Shipping Price Input -->
+                                    <label for="shipping-price">Shipping Price</label>
+                                    <input type="text" id="shipping-price" class="money-input" placeholder="Enter Shipping Price">
+
+                                    <!-- Item Price Input -->
+                                    <label for="item-price">Item Price</label>
+                                    <input type="text" id="item-price" class="money-input" placeholder="Enter Item Price">
+
                                 <div class="col-lg-12">
                                     <button type="submit" class="site-btn">List Item</button>
                                 </div>

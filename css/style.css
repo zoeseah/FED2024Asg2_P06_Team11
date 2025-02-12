@@ -316,7 +316,12 @@ ol {
 -----------------------*/
 
 .header {
-	background: #ffd4fb57;
+	background: #ffd4fbc1;
+	position: relative;
+    top: 0;
+    bottom: 530px;
+    width: 100%;
+    z-index: 1000;
 }
 
 .header__top {
@@ -651,7 +656,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 50vh;
   }
   
   .login-box {
@@ -826,7 +831,26 @@ body {
     color: #999;
   }
   
-  
+  /* Game Logo */
+.game-logo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    z-index: 1000;
+}
+
+.game-logo img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.game-logo:hover img {
+    transform: scale(1.1);
+}
+
  /* Main Picture */
 .main-picture {
   text-align: center;
@@ -898,38 +922,6 @@ body {
   margin: 0 auto 10px;
 }
 
-/* Footer */
-.footer {
-  background-color: #D9D9D9;
-  padding: 20px;
-}
-
-.footer-columns {
-  display: flex;
-  justify-content: space-around;
-}
-
-.footer h3 {
-  margin-bottom: 10px;
-}
-
-.footer ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer ul li {
-  margin-bottom: 5px;
-}
-
-.footer ul li a {
-  color: #555;
-  text-decoration: none;
-}
-
-.footer ul li a:hover {
-  text-decoration: underline;
-}
 /*---------------------
   Hero Section Fixes
 -----------------------*/
@@ -1005,6 +997,7 @@ body {
 .hero__slider.owl-carousel .owl-nav button.owl-next {
     right: 30px; /* Move back to right */
 }
+
 
 
 /*---------------------
@@ -2335,39 +2328,41 @@ body {
 /*---------------------
   Footer
 -----------------------*/
+/* General Footer Styling */
 .footer {
-    background: #d3d3d3; /* Dark background */
+    width: 100%;
+    background: #dedede; /* Matches wireframe */
     padding: 50px 0;
-    color: white;
+    color: rgb(191, 190, 190);
 }
 
-.container {
-    max-width: 1200px;
-    margin: auto;
-}
-
+/* Footer Sections - Full Width */
 .footer-top {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: flex-start;
     background-color: #d3d3d3; /* Light gray section */
-    padding: 30px;
-    border-radius: 5px;
+    padding: 30px 8%;
+    border-radius: 0; /* Remove rounded edges */
+    width: 100%;
 }
 
+/* Footer Section Titles */
 .footer-section {
-    flex: 1;
-    padding: 0 15px;
+    text-align: left;
+    margin-bottom: 20px;
 }
 
 .footer-section h3 {
     font-weight: bold;
     color: black;
+    font-size: 18px; /* Ensure title size matches wireframe */
     margin-bottom: 15px;
 }
 
+/* Footer Links */
 .footer-section ul {
-	font-size:48;
+    list-style: none;
     padding: 0;
 }
 
@@ -2379,40 +2374,18 @@ body {
     text-decoration: none;
     color: black;
     font-size: 15px;
+    font-weight: 400; /* Ensure consistent weight */
 }
 
 .footer-section ul li a:hover {
     text-decoration: underline;
 }
 
-/* About Section */
-.footer-about {
-    flex: 1.5;
-    text-align: left;
-}
-
-.footer-about h4 {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: white;
-}
-
-.footer-about p {
-    font-size: 14px;
-    color: #b7b7b7;
-    margin-bottom: 15px;
-}
-
-.footer-about img {
-    max-width: 150px;
-}
-
 /* Newsletter Section */
 .footer-bottom {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .newsletter {
@@ -2443,6 +2416,7 @@ body {
     background: white;
     padding: 5px;
     border-radius: 3px;
+    border: 1px solid #ccc; /* Add subtle border */
 }
 
 .newsletter input {
@@ -2466,16 +2440,16 @@ body {
     color: black;
 }
 
-/* Copyright Section */
+/* Footer Copyright Section */
 .footer-copyright {
     text-align: center;
     margin-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
     padding: 15px 0;
 }
 
 .footer-copyright p {
-    color: #b7b7b7;
+    color: black;
     font-size: 14px;
     margin-bottom: 0;
 }
@@ -2487,11 +2461,13 @@ body {
 .footer-copyright p a {
     color: #e53637;
     text-decoration: none;
+    font-weight: bold;
 }
 
 .footer-copyright p a:hover {
     text-decoration: underline;
 }
+
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
@@ -3832,6 +3808,110 @@ body {
 	letter-spacing: 4px;
 	padding: 14px 35px;
 }
+
+
+/* Create Listings css */
+/* Custom Dropdown Styling */
+.custom-dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.dropdown-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+	font:Arial;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    width: 100%;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu li {
+    padding: 12px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    position: relative;
+}
+
+/* Submenu Styling */
+.dropdown-submenu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 200px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-category:hover .dropdown-submenu {
+    display: block;
+}
+
+.dropdown-menu li:hover {
+    background: #f5f5f5;
+}
+
+/* Ensure consistent input styling */
+.money-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    transition: all 0.3s ease-in-out;
+    text-align: right; /* Align text to the right for better formatting */
+}
+
+/* Hover effect */
+.money-input:hover {
+    border-color: #777;
+}
+
+/* Focus effect */
+.money-input:focus {
+    outline: none;
+    border-color: #ff5e57;
+    box-shadow: 0px 0px 6px rgba(255, 94, 87, 0.4);
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+input:invalid, select:invalid, textarea:invalid {
+    border-color: red;
+}
+
 
 /*--------------------------------- Responsive Media Quaries -----------------------------*/
 
