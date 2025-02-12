@@ -3979,8 +3979,8 @@ input:invalid, select:invalid, textarea:invalid {
 /* Shopping Cart Buttons */
 .cart-buttons {
     display: flex;
-    justify-content: space-between; 
-    margin-top: 20px; 
+    justify-content: space-between; /* Ensures buttons are spaced out */
+    margin-top: 20px; /* Adds spacing to prevent overlap */
     padding: 10px 0;
 }
 
@@ -3998,12 +3998,13 @@ input:invalid, select:invalid, textarea:invalid {
     background-color: #a80000;
 }
 
+/* Fix footer from being pushed up */
 .footer {
     position: relative;
     bottom: 0;
     width: 100%;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: #eae9e9;
     text-align: center;
     margin-top: 50px; /* Ensures footer is spaced correctly */
 }
