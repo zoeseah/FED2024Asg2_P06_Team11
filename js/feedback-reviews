@@ -1,20 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
-    let feedbackCarousel = document.querySelector("#feedbackCarousel");
+    let feedbackCarousel = document.getElementById("feedbackCarousel");
     let carouselInstance = new bootstrap.Carousel(feedbackCarousel, {
-        interval: 5000, // Auto-slide every 5 seconds
-        ride: "carousel"
+        interval: 2000, // Auto-slide every 2 seconds
+        pause: "hover", // Pause when hovered
+        wrap: true // Loop slides
     });
 
-    // Pause auto-slide on hover and resume on mouse leave
-    feedbackCarousel.addEventListener("mouseenter", () => {
-        carouselInstance.pause();
-    });
-
-    feedbackCarousel.addEventListener("mouseleave", () => {
-        carouselInstance.cycle();
-    });
-
-    // Enable keyboard navigation (left/right arrow keys)
+    // Enable keyboard navigation (Left/Right arrow keys)
     document.addEventListener("keydown", function (event) {
         if (event.key === "ArrowLeft") {
             carouselInstance.prev();
