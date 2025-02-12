@@ -2352,6 +2352,38 @@ body {
 .product__details__tab__content__item p {
 	margin-bottom: 0;
 }
+.product__seller {
+    display: flex;
+    align-items: center; /* Aligns profile pic, name, and reviews */
+    justify-content: center; /* Centers the whole section */
+    gap: 20px; /* Adds space between profile picture and text */
+    text-align: left;
+    margin-top: 10px;
+}
+
+.seller-img {
+    width: 70px; /* Increase profile picture size */
+    height: 70px;
+    border-radius: 50%; /* Makes it a circle */
+    object-fit: cover;
+    border: 2px solid #ddd; /* Optional subtle border */
+}
+
+.seller-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#seller-name {
+    font-size: 18px; /* Increases name size */
+    font-weight: bold;
+}
+
+.seller-ratings {
+    font-size: 16px; /* Ensures stars are readable */
+    color: #FFD700; /* Optional: Makes stars gold */
+}
 
 /*---------------------
   Related
