@@ -154,7 +154,7 @@
                                     <h4>Category</h4>
                                     <!-- Custom Dropdown for Category -->
                                     <div class="custom-dropdown">
-                                        <button class="dropdown-btn">Select Category</button>
+                                        <button class="dropdown-btn" id="category">Select Category</button>
                                         <ul class="dropdown-menu">
                                             <li class="dropdown-category">Electronics
                                                 <ul class="dropdown-submenu">
@@ -221,7 +221,7 @@
 
                                     <h4>Brand (Optional)</h4>
                                     <div class="custom-dropdown">
-                                        <button class="dropdown-btn">Select Brand (Optional)</button>
+                                        <button class="dropdown-btn" id="brand">Select Brand (Optional)</button>
                                         <ul class="dropdown-menu">
                                             <li class="dropdown-category">Electronics
                                                 <ul class="dropdown-submenu">
@@ -268,10 +268,8 @@
                                             </li>
                                         </ul>
                                     </div>
-
                              
                                     <h4>Condition</h4>
-                                    <br>
                                     <select id="condition" required>
                                         <option value="" disabled selected>Select Condition</option>
                                         <option value="New">New</option>
@@ -283,7 +281,7 @@
                                     <br>
                                     <br>
                                     <h4>Country</h4>
-                                    <input type="text" placeholder="Country">
+                                    <input type="text" id="country" placeholder="Country">
                                     <h4>Pricing</h4>
                                     <br>
                                     <!-- Shipping Price Input -->
@@ -413,11 +411,13 @@
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/mixitup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
+    <!--<script src="js-own/create-listing.js"></script>-->
     <script src="js/main.js"></script>
     <script
   src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
   type="module"
 ></script>
+
 
 </body>
 
